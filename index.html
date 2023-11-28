@@ -184,6 +184,25 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 </noscript>
 <!-- End LinkedIn Pixel -->
 
+      <script>
+!function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('consent', 'revoke');
+  fbq('init', '{your-facebook-pixel-id}');
+  fbq('track', 'PageView');
+  document.addEventListener("cookieyes_consent_update", function (eventData)
+ {
+   const data = eventData.detail;
+   if (data.accepted.includes("advertisement")) {
+ fbq('consent', 'grant');}
+  });
+</script>
       
     </div>
   </body>
