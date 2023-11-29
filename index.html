@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    
    <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -8,13 +9,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KF6QGZNM');</script>
 <!-- End Google Tag Manager -->
+
+    <script defer>
+        // My cookie-checking script
+        function areCookiesEnabled() {
+            try {
+                document.cookie = "testcookie=test; path=/";
+                var cookieEnabled = document.cookie.indexOf("testcookie") !== -1;
+                return cookieEnabled;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        if (areCookiesEnabled()) {
+            // Load your CDN script
+            var script = document.createElement('script');
+            script.id = 'cookieyes';
+          script.type = 'text/javascript;
+            script.src = 'https://scriptstaging.cookieyes.com/client_data/855fea2dfee421b38de6ab26/script.js';
+            document.head.appendChild(script);
+        } else {
+            // Cookies are blocked, handle accordingly
+            console.log("Cookies are blocked. Your CDN script won't be loaded.");
+        }
+    </script>
     
     <!-- Start cookieyes banner -->
-    <script
+<!--     <script
       id="cookieyes"
       type="text/javascript"
       src="https://scriptstaging.cookieyes.com/client_data/855fea2dfee421b38de6ab26/script.js"
-    ></script>
+    ></script> -->
     <!-- End cookieyes banner -->
 
     <meta charset="UTF-8" />
