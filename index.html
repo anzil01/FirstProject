@@ -10,51 +10,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-KF6QGZNM');</script>
 <!-- End Google Tag Manager -->
 
-    <!-- Test script to check cookie support -->
-    <script>
-        // Function to check if cookies are supported
-        function areCookiesSupported() {
-            try {
-                document.cookie = 'testcookie=testvalue; SameSite=None; Secure';
-                var cookiesEnabled = document.cookie.indexOf('testcookie=testvalue') !== -1;
-                // Clean up the test cookie
-                document.cookie = 'testcookie=; expires=Thu, 01 Jan 2024 00:00:00 UTC; SameSite=None; Secure';
-                return cookiesEnabled;
-            } catch (error) {
-                return false;
-            }
-        }
-
-        // Check if cookies are supported
-        var cookiesSupported = areCookiesSupported();
-
-        if (cookiesSupported) {
-            // Cookies are supported, load your third-party consent script
-            loadThirdPartyScript();
-        } else {
-            // Cookies are not supported, handle accordingly
-            console.warn('Cookies are not supported');
-        }
-
-        // Function to dynamically load the third-party consent script
-        function loadThirdPartyScript() {
-            var script = document.createElement('script');
-            script.src = 'https://scriptstaging.cookieyes.com/client_data/855fea2dfee421b38de6ab26/script.js'; 
-            script.type = 'text/javascript';
-            script.id = 'cookieyes';
-            
-            // Append the script to the head
-            document.head.appendChild(script);
-        }
-    </script>
-
-    
 <!--     Start cookieyes banner -->
-<!--     <script
+    <script
       id="cookieyes"
       type="text/javascript"
       src="https://scriptstaging.cookieyes.com/client_data/855fea2dfee421b38de6ab26/script.js"
-    ></script> -->
+    ></script>
     <!-- End cookieyes banner -->
 
     <meta charset="UTF-8" />
