@@ -32,9 +32,12 @@
   }
 }
 
-      if (areCookiesSupported()) {
+      if (!areCookiesSupported()) {
+      console.log("Adding script...");
       var newScript = document.createElement("script");
-      newScript.innerHTML = "window.ckySettings = { ruleSet: [] }";
+      newScript.innerHTML = `window.ckySettings = {
+  ruleSet: []
+}`;
       document.head.insertBefore(newScript, document.getElementById("cookieyes"));
 }
     </script>
