@@ -19,8 +19,23 @@
     <!-- End Google Tag Manager -->
 
     <script>
-      window.ckySettings = {
-  ruleSet: []
+      function areCookiesSupported() {
+  try {
+    document.cookie = "testcookie=testvalue;";
+    var cookiesEnabled = document.cookie.indexOf("testcookie=testvalue") !== -1;
+    console.log("Is cookies enabled:", cookiesEnabled);
+    // Clean up the test cookie
+    // document.cookie = 'testcookie=;';
+    return cookiesEnabled;
+  } catch (error) {
+    return false;
+  }
+}
+
+      if (areCookieyesSupported() {
+      var newScript = document.createElement("script");
+      newScript.innerHTML = "window.ckySettings = { ruleSet: [] }";
+      document.head.insertBefore(newScript, document.getElementById("cookieyes"));
 }
     </script>
     
