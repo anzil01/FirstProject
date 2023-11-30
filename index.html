@@ -17,32 +17,7 @@
     <!-- End Google Tag Manager -->
 
     <!-- Check if cookies are not blocked -->
-    <script>
-      // Function to check if cookies are supported
-      function areCookiesSupported() {
-        try {
-          document.cookie = "testcookie=testvalue;";
-          var cookiesEnabled =
-            document.cookie.indexOf("testcookie=testvalue") !== -1;
-          console.log(cookiesEnabled);
-          // Clean up the test cookie
-          // document.cookie = 'testcookie=;';
-          return cookiesEnabled;
-        } catch (error) {
-          return false;
-        }
-      }
-
-      function removeBanner() {
-        var elementToRemove = document.querySelector(".cky-consent-container");
-        var parentNode = elementToRemove.parentNode;
-        parentNode.removeChild(elementToRemove);
-      }
-
-      if (!areCookiesSupported()) {
-        removeBanner();
-      }
-    </script>
+    <script type="text/javascript" src="cyConsent.js"></script>
 
     <!--     Start cookieyes banner -->
     <script
