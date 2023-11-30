@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <!-- Check if cookies are not blocked -->
-    <script async>
+    <script>
       function areCookiesSupported() {
   try {
     document.cookie = "testcookie=testvalue;";
@@ -23,7 +23,7 @@ if (areCookiesSupported()) {
   cyConsentScript.type = "text/javascript";
   cyConsentScript.id = "cookieyes";
 
-  document.head.insertBefore(cyConsentScript, document.currentScript);
+  document.head.insertBefore(cyConsentScript, document.head.firstChild);
 }
     </script>
 
