@@ -2,31 +2,6 @@
 <html lang="en">
   <head>
     <!-- Check if cookies are not blocked -->
-    <script>
-      function areCookiesSupported() {
-  try {
-    document.cookie = "testcookie=testvalue;";
-    var cookiesEnabled = document.cookie.indexOf("testcookie=testvalue") !== -1;
-    console.log(cookiesEnabled);
-    // Clean up the test cookie
-    // document.cookie = 'testcookie=;';
-    return cookiesEnabled;
-  } catch (error) {
-    return false;
-  }
-}
-
-if (areCookiesSupported()) {
-  let cyConsentScript = document.createElement("script");
-  cyConsentScript.src =
-    "https://scriptstaging.cookieyes.com/client_data/855fea2dfee421b38de6ab26/script.js";
-  cyConsentScript.type = "text/javascript";
-  cyConsentScript.id = "cookieyes";
-
-  document.head.insertBefore(cyConsentScript, document.head.firstChild);
-}
-    </script>
-
     
     <!-- Google Tag Manager -->
     <script>
@@ -42,6 +17,12 @@ if (areCookiesSupported()) {
       })(window, document, "script", "dataLayer", "GTM-KF6QGZNM");
     </script>
     <!-- End Google Tag Manager -->
+
+    window.ckySettings = {
+  ruleSet: []
+}
+    <script src="https://scriptstaging.cookieyes.com/client_data/855fea2dfee421b38de6ab26/script.js" type="text/javascript" id="cookieyes"></script>
+
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
