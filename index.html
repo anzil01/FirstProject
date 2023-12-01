@@ -23,11 +23,11 @@
       function areCookiesSupported() {
   try {
     document.cookie = "testcookie=testvalue;";
-    const cookiesEnabled = document.cookie.indexOf("testcookie=testvalue") !== -1;
+    const cookiesEnabled = /testcookie=testvalue/.test(document.cookie);
     document.cookie = 'testcookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
     return cookiesEnabled;
   } catch (error) {
-    return false;
+    return true;
   }
 }
       if (!areCookiesSupported()) {
