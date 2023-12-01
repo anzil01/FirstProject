@@ -20,22 +20,20 @@
     
     <script src="https://scriptstaging.cookieyes.com/client_data/855fea2dfee421b38de6ab26/script.js" type="text/javascript" id="cookieyes"></script>
     <script>
-      function areCookiesSupported() {
-  try {
-    document.cookie = "testcookie=testvalue;";
-    const cookiesEnabled = /testcookie=testvalue/.test(document.cookie);
-    document.cookie = 'testcookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
-    return cookiesEnabled;
-  } catch (error) {
-    return true;
-  }
-}
-      if (!areCookiesSupported()) {
-      const newScript = document.createElement("script");
-      newScript.innerHTML = `window.ckySettings = {
+      try {
+  document.cookie = "testcookie=testvalue;";
+  const cookiesEnabled = /testcookie=testvalue/.test(document.cookie);
+  document.cookie = "testcookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+
+  if (!cookiesEnabled) {
+    const newScript = document.createElement("script");
+    newScript.innerHTML = `window.ckySettings = {
   ruleSet: []
 }`;
-      document.head.insertBefore(newScript, document.getElementById("cookieyes"));
+    document.head.insertBefore(newScript, document.getElementById("cookieyes"));
+  }
+} catch (error) {
+  return;
 }
     </script>
 
