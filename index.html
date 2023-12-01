@@ -33,7 +33,7 @@
     document.head.insertBefore(newScript, document.getElementById("cookieyes"));
   }
 } catch (error) {
-  return;
+  console.warn("Cookies are blocked:", error);
 }
     </script>
 
