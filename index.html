@@ -18,7 +18,14 @@
     </script>
     <!-- End Google Tag Manager -->
     
-    <script src="https://scriptstaging.cookieyes.com/client_data/855fea2dfee421b38de6ab26/script.js" type="text/javascript" id="cookieyes"></script>
+<!--     <script src="https://scriptstaging.cookieyes.com/client_data/855fea2dfee421b38de6ab26/script.js" type="text/javascript" id="cookieyes"></script> -->
+    (function (d) {
+    const e = d.createElement('script');
+    e.src = `https://cdn-cookieyes.com/client_data/74687f82c45eef207b80a09e/script.js`;
+    e.type = 'text/javascript';
+    e.id = 'cookieyes';
+    d.currentScript.parentNode.insertBefore(e, d.currentScript);    
+})(document);
     <script>
       try {
   document.cookie = "testcookie=testvalue;";
