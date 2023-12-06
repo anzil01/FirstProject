@@ -25,7 +25,14 @@
     e.src = `https://scriptstaging.cookieyes.com/client_data/855fea2dfee421b38de6ab26/script.js`;
     e.type = 'text/javascript';
     e.id = 'cookieyes';
-    d.currentScript.parentNode.insertBefore(e, d.currentScript);    
+    const currentScript = (function () {
+          const scripts = d.getElementsByTagName("script");
+          return scripts[scripts.length - 1];
+        })();
+
+        currentScript.parentNode.insertBefore(e, currentScript);
+
+        e.onload = function () {};  
 })(document);
     </script>
     <script>
