@@ -30,31 +30,41 @@
     <!-- End Google Tag Manager -->
     
     <script src="https://scriptstaging.cookieyes.com/client_data/855fea2dfee421b38de6ab26/script.js" type="text/javascript" id="cookieyes"></script>
-    
-<!--     <script>
-      try {
-  document.cookie = "testcookie=testvalue;";
-  const cookiesEnabled = /testcookie=testvalue/.test(document.cookie);
-  document.cookie = "testcookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
 
-  if (!cookiesEnabled) {
-    const newScript = document.createElement("script");
-    newScript.innerHTML = `window.ckySettings = {
-  ruleSet: []
-}`;
-    document.head.insertBefore(newScript, document.getElementById("cookieyes"));
-  }
-} catch (error) {
-  console.warn("Cookies are blocked:", error);
-}
-    </script> -->
+    <script>
+      function getCookie(key) {
+        const cookies = document.cookie
+          .split(";")
+          .reduce(
+            (ac, cv, i) =>
+              Object.assign(ac, { [cv.split("=")[0]]: cv.split("=")[1] }),
+            {}
+          )["cookieyes-consent"];
+
+        const { [key]: value } = cookies
+          .split(",")
+          .reduce(
+            (obj, pair) => (
+              (pair = pair.split(":")), (obj[pair[0]] = pair[1]), obj
+            ),
+            {}
+          );
+        return value;
+      }
+
+      if (getCookie("consent") == "yes" && getCookie("analytics") == "yes") {
+        const script = document.createElement("script");
+        script.setAttribute("src", "<URL of your script>");
+        document.body.appendChild(script);
+      }
+    </script>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cookieyes test site</title>
 
     <!-- Hotjar Tracking Code for my site -->
-<!--     <script>
+    <script>
       (function (h, o, t, j, a, r) {
         h.hj =
           h.hj ||
@@ -68,7 +78,7 @@
         r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
         a.appendChild(r);
       })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
-    </script> -->
+    </script>
 
     <!-- Facebook Pixel Code -->
 <!--     <script>
