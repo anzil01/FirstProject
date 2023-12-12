@@ -54,14 +54,16 @@
 
       if (getCookie("consent") == "yes" && getCookie("analytics") == "yes") {
         const script = document.createElement("script");
+        script.id="cookieyesCustomBlock"
         script.setAttribute("src", "<URL of your script>");
-        document.body.appendChild(script);
+        document.head.appendChild(script);
       }
     </script>
     <script>
 const script = document.createElement("script");
         script.setAttribute("src", "<URL of your  test script>");
-        document.body.appendChild(script);
+        script.id="cookieyesCustomBlocktest"
+        document.head.appendChild(script);
     </script>
 
     <meta charset="UTF-8" />
