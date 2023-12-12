@@ -37,7 +37,7 @@
           .split(";")
           .reduce(
             (ac, cv, i) =>
-              Object.assign(ac, { [cv.split("=")[0]]: cv.split("=")[1] }),
+              Object.assign(ac, { [cv.split("=")[0].trim()]: cv.split("=")[1] }),
             {}
           )["cookieyes-consent"];
 
@@ -53,6 +53,7 @@
       }
 
       if (getCookie("consent") == "yes" && getCookie("analytics") == "yes") {
+        console.log('hurray')
         const script = document.createElement("script");
         script.id="cookieyesCustomBlock"
         script.setAttribute("src", "<URL of your script>");
