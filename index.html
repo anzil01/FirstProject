@@ -37,7 +37,7 @@
           .split(";")
           .reduce(
             (ac, cv, i) =>
-              Object.assign(ac, { [cv.split("=")[0]]: cv.split("=")[1] }),
+              Object.assign(ac, { [cv.split("=")[0].trim()]: cv.split("=")[1] }),
             {}
           )["cookieyes-consent"];
 
@@ -59,12 +59,7 @@
         document.head.appendChild(script);
       }
     </script>
-    <script>
-const script = document.createElement("script");
-        script.setAttribute("src", "<URL of your  test script>");
-        script.id="cookieyesCustomBlocktest"
-        document.head.appendChild(script);
-    </script>
+ 
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
