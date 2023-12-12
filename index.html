@@ -12,6 +12,7 @@
               Object.assign(ac, { [cv.split("=")[0].trim()]: cv.split("=")[1] }),
             {}
           )["cookieyes-consent"];
+        console.log("Cookies:", cookies);
 
         const { [key]: value } = cookies
           .split(",")
