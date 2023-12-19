@@ -25,6 +25,7 @@
       }
 
       if (getCookie("consent") == "yes" && getCookie("analytics") == "yes") {
+        console.log("HURAY")
         const script = document.createElement("script");
         script.setAttribute("src", "cyConsent.js");
         document.head.appendChild(script);
