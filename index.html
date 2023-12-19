@@ -23,7 +23,7 @@
         return value;
       }
 
-      console.log(document.cookie);
+      console.log(getCookie("analytics"));
       if (getCookie("consent") == "yes" && getCookie("analytics") == "yes") {
         console.log("HURAY")
         const script = document.createElement("script");
