@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <script src="https://scriptstaging.cookieyes.com/client_data/855fea2dfee421b38de6ab26/script.js" type="text/javascript" id="cookieyes"></script>
-
     <script>
       function getCookie(key) {
         const cookies = document.cookie
@@ -24,6 +23,7 @@
         return value;
       }
 
+      console.log(document.cookie);
       if (getCookie("consent") == "yes" && getCookie("analytics") == "yes") {
         console.log("HURAY")
         const script = document.createElement("script");
