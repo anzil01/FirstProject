@@ -290,19 +290,15 @@
 
     <script>
       try {
-    const HIDE_BANNER_QUERY = "reader="; // Replace with your specific query string
-    const currentUrlQuery = window.location.href.split("?")[1] || "";
-    if (currentUrlQuery.includes(HIDE_BANNER_QUERY)) {
-      document.addEventListener("DOMContentLoaded", function() {
-        var consentContainer = document.querySelector(".cky-consent-container");
-        if (consentContainer) {
-            consentContainer.remove();
+        document.addEventListener("DOMContentLoaded", function() {
+          const HIDE_BANNER_QUERY = "reader="; // Replace with your specific query string
+          const currentUrlQuery = window.location.href.split("?")[1] || "";
+          var consentContainer = document.querySelector(".cky-consent-container");
+          if (currentUrlQuery.includes(HIDE_BANNER_QUERY) && consentContainer) consentContainer.remove();
+        })
+      } catch (error) {
+        console.error(error);
       }
-});
-
-  } catch (error) {
-    console.error(error);
-  }
     </script>
   </body>
 </html>
