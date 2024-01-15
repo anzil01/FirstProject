@@ -293,6 +293,7 @@
         document.addEventListener("DOMContentLoaded", function() {
           const HIDE_BANNER_QUERY = "reader="; // Replace with your specific query string
           const currentUrlQuery = window.location.href.split("?")[1] || "";
+          console.log(currentUrlQuery);
           var consentContainer = document.querySelector(".cky-consent-container");
           if (currentUrlQuery.includes(HIDE_BANNER_QUERY) && consentContainer) consentContainer.remove();
         })
