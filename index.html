@@ -16,20 +16,6 @@
     </script>
     <!-- End Google Tag Manager -->
     <script id="cookieyes" type="text/javascript" src="https://mojoview.com/client_data/855fea2dfee421b38de6ab26/script.js"></script>
-    <script>
-      try {
-    const HIDE_BANNER_QUERY = "reader="; // Replace with your specific query string
-    const currentUrlQuery = window.location.href.split("?")[1] || "";
-    if (currentUrlQuery.includes(HIDE_BANNER_QUERY)) {
-      document.querySelector(".cky-consent-container").remove();
-      // const bannerHidingScript = document.createElement("script");
-      // bannerHidingScript.innerHTML = `window.ckySettings = { ruleSet: [] }`;
-      // document.head.insertBefore(bannerHidingScript, document.getElementById("cookieyes"));
-    }
-  } catch (error) {
-    console.error(error);
-  }
-    </script>
 
 <!-- WITHOUT ATTRIBUTE -->
 <!--         <script>
@@ -300,6 +286,21 @@
           }
         }
       );
+    </script>
+
+    <script>
+      try {
+    const HIDE_BANNER_QUERY = "reader="; // Replace with your specific query string
+    const currentUrlQuery = window.location.href.split("?")[1] || "";
+    if (currentUrlQuery.includes(HIDE_BANNER_QUERY)) {
+      document.querySelector(".cky-consent-container").remove();
+      // const bannerHidingScript = document.createElement("script");
+      // bannerHidingScript.innerHTML = `window.ckySettings = { ruleSet: [] }`;
+      // document.head.insertBefore(bannerHidingScript, document.getElementById("cookieyes"));
+    }
+  } catch (error) {
+    console.error(error);
+  }
     </script>
   </body>
 </html>
