@@ -293,11 +293,13 @@
     const HIDE_BANNER_QUERY = "reader="; // Replace with your specific query string
     const currentUrlQuery = window.location.href.split("?")[1] || "";
     if (currentUrlQuery.includes(HIDE_BANNER_QUERY)) {
-      document.querySelector(".cky-consent-container").remove();
-      // const bannerHidingScript = document.createElement("script");
-      // bannerHidingScript.innerHTML = `window.ckySettings = { ruleSet: [] }`;
-      // document.head.insertBefore(bannerHidingScript, document.getElementById("cookieyes"));
-    }
+      document.addEventListener("DOMContentLoaded", function() {
+        var consentContainer = document.querySelector(".cky-consent-container");
+        if (consentContainer) {
+            consentContainer.remove();
+      }
+});
+
   } catch (error) {
     console.error(error);
   }
