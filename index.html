@@ -301,5 +301,25 @@
         console.error(error);
       }
     </script>
+
+    <script>
+      var checktimeout = 0;
+      window.addEventListener("load", function () {
+        waitForElement(".cky-consent-container", function () {
+          document.querySelector(".cky-banner-btn-close").click();
+          console.log('Close button clicked');
+        });
+      });
+      function waitForElement(selector, callback) {
+        const element = document.querySelector(selector);
+        if (element) return callback();
+        checktimeout++;
+        if (checktimeout < 120) {
+          setTimeout(function () {
+            waitForElement(selector, callback);
+          }, 500);
+        }
+      }
+    </script>
   </body>
 </html>
