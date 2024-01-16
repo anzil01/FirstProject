@@ -295,9 +295,10 @@
       
       var checktimeout = 0;
       window.addEventListener("load", function () {
-        waitForElement(".cky-btn-revisit-wrapper", function () {
-          document.querySelector(".cky-btn-revisit-wrapper").classList.remove("cky-revisit-hide");
-          console.log('Revisit shown.');
+        waitForElement(".cky-consent-container", function () {
+          document.querySelector(".cky-banner-btn-close").click();
+        //   document.querySelector(".cky-btn-revisit-wrapper").classList.remove("cky-revisit-hide");
+        //   console.log('Revisit shown.');
         });
       });
       
