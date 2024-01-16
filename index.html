@@ -315,9 +315,7 @@
         if (element) return callback();
         checktimeout++;
         if (checktimeout < 120) {
-          setTimeout(function () {
             waitForElement(selector, callback);
-          }, 500);
         }
       }
     </script>
