@@ -16,25 +16,7 @@
     </script>
     <!-- End Google Tag Manager -->
     <script id="cookieyes" type="text/javascript" src="https://mojoview.com/client_data/855fea2dfee421b38de6ab26/script.js"></script>
-    <script>
-      var checktimeout = 0;
-      window.addEventListener("load", function () {
-        waitForElement(".cky-consent-container", function () {
-          document.querySelector(".cky-banner-btn-close").click();
-          console.log('Close button clicked');
-        });
-      });
-      function waitForElement(selector, callback) {
-        const element = document.querySelector(selector);
-        if (element) return callback();
-        checktimeout++;
-        if (checktimeout < 120) {
-          setTimeout(function () {
-            waitForElement(selector, callback);
-          }, 200);
-        }
-      }
-    </script>
+    
 <!-- WITHOUT ATTRIBUTE -->
 <!--         <script>
       function getCookie(key) {
@@ -307,6 +289,31 @@
     </script>
 
     <script>
+      const styleElement = document.createElement("style");
+      styleElement.innerHTML = `.cky-consent-container { display: none; }`;
+      document.head.appendChild(styleElement);
+      
+      var checktimeout = 0;
+      window.addEventListener("load", function () {
+        waitForElement(".cky-btn-revisit-wrapper", function () {
+          document.querySelector(".cky-btn-revisit-wrapper").classList.remove("cky-revisit-hide");
+          console.log('Revisit shown.');
+        });
+      });
+      
+      function waitForElement(selector, callback) {
+        const element = document.querySelector(selector);
+        if (element) return callback();
+        checktimeout++;
+        if (checktimeout < 120) {
+          setTimeout(function () {
+            waitForElement(selector, callback);
+          }, 500);
+        }
+      }
+    </script>
+
+    <script>
       try {
         const HIDE_BANNER_QUERY = "reader="; // Replace with your specific query string
         const currentUrlQuery = window.location.href.split("?")[1] || "";
@@ -319,5 +326,7 @@
         console.error(error);
       }
     </script>
+
+    
   </body>
 </html>
