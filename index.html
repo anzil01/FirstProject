@@ -356,6 +356,25 @@
       }
     </script> -->
 
+<script>
+  var checktimeout = 0;
+  window.addEventListener("load", function () {
+    waitForElement(".cky-consent-container", function () {
+      document.querySelector(".cky-banner-btn-close").click();
+    });
+  });
+  function waitForElement(selector, callback) {
+    const element = document.querySelector(selector);
+    if (element) return callback();
+    checktimeout++;
+    if (checktimeout < 120) {
+      setTimeout(function () {
+        waitForElement(selector, callback);
+      }, 500);
+    }
+  }
+</script>
+
     <script>
       try {
         const HIDE_BANNER_QUERY = "reader="; // Replace with your specific query string
