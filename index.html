@@ -1,6 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+	<script>
+  const cyConsent = document.cookie
+    .split(";")
+    .find((cookie) => cookie.includes("cookieyes-consent"));
+
+  let consentObj = {};
+  if (cyConsent) {
+    const consentArr = cyConsent.split("=")[1].split(",");
+    consentArr.forEach((item) => {
+      const itemArr = item.split(":");
+      consentObj[itemArr[0]] = itemArr[1];
+    });
+  }
+
+  const adConsent =
+    consentObj.advertisement === "yes" ? "granted" : "denied";
+  const analyticsConsent =
+    consentObj.analytics === "yes" ? "granted" : "denied";
+  const functionalConsent =
+    consentObj.functional === "yes" ? "granted" : "denied";
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag("consent", "default", {
+    ad_storage: adConsent,
+    ad_user_data: adConsent,
+    ad_personalization: adConsent,
+    analytics_storage: analyticsConsent,
+    functionality_storage: functionalConsent,
+    personalization_storage: functionalConsent,
+    security_storage: "granted",
+    wait_for_update: 2000,
+  });
+
+  gtag("set", "ads_data_redaction", true);
+  gtag("set", "url_passthrough", true);
+</script>
+
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
