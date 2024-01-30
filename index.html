@@ -1,48 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<script>
-  const cyConsent = document.cookie
-    .split(";")
-    .find((cookie) => cookie.includes("cookieyes-consent"));
-
-  let consentObj = {};
-  if (cyConsent) {
-    const consentArr = cyConsent.split("=")[1].split(",");
-    consentArr.forEach((item) => {
-      const itemArr = item.split(":");
-      consentObj[itemArr[0]] = itemArr[1];
-    });
-  }
-
-  const adConsent =
-    consentObj.advertisement === "yes" ? "granted" : "denied";
-  const analyticsConsent =
-    consentObj.analytics === "yes" ? "granted" : "denied";
-  const functionalConsent =
-    consentObj.functional === "yes" ? "granted" : "denied";
-
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-
-  gtag("consent", "default", {
-    ad_storage: adConsent,
-    ad_user_data: adConsent,
-    ad_personalization: adConsent,
-    analytics_storage: analyticsConsent,
-    functionality_storage: functionalConsent,
-    personalization_storage: functionalConsent,
-    security_storage: "granted",
-    wait_for_update: 2000,
-  });
-
-  gtag("set", "ads_data_redaction", true);
-  gtag("set", "url_passthrough", true);
-</script>
-
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -57,44 +15,14 @@
       })(window, document, "script", "dataLayer", "GTM-KF6QGZNM");
     </script>
     <!-- End Google Tag Manager -->
-	<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/d16986325cafa3cc08829c97/script.js"></script>
+    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/d16986325cafa3cc08829c97/script.js"></script>
  
-<!-- WITHOUT ATTRIBUTE -->
-<!--         <script>
-      function getCookie(key) {
-        const cookies = document.cookie
-          .split(";")
-          .reduce(
-            (ac, cv, i) =>
-              Object.assign(ac, { [cv.split("=")[0].trim()]: cv.split("=")[1] }),
-            {}
-          )["cookieyes-consent"];
-
-        const { [key]: value } = cookies
-          .split(",")
-          .reduce(
-            (obj, pair) => (
-              (pair = pair.split(":")), (obj[pair[0]] = pair[1]), obj
-            ),
-            {}
-          );
-        return value;
-      }
-
-      if (getCookie("consent") == "yes" && getCookie("analytics") == "yes") {
-        const script = document.createElement("script");
-        script.setAttribute("src", "cyConsent.js");
-        document.head.appendChild(script);
-      }
-    </script> -->
-
-<!-- WITH ATTRIBUTE -->
-<!--     <script src="cyConsent.js" data-cookieyes="cookieyes-analytics"></script> -->
-    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cookieyes test site</title>
 
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2095695521354060"
+     crossorigin="anonymous"></script>
     <!-- Hotjar Tracking Code for my site -->
     <script>
       (function (h, o, t, j, a, r) {
@@ -111,39 +39,6 @@
         a.appendChild(r);
       })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
     </script>
-
-    <!-- Facebook Pixel Code -->
-<!--     <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
-      );
-      fbq("consent", "revoke");
-      fbq("init", "890643342462292");
-      fbq("track", "PageView");
-    </script> -->
-    <!-- End Facebook Pixel -->
-
-    <!-- Bing Ads UET Tag -->
   </head>
   <body>
      <!-- Google Tag Manager (noscript) -->
@@ -235,134 +130,6 @@
       })();
     </script>
     <!--End of Tawk.to Script-->
-
-    <!-- Matomo Analytics Tracking Code -->
-    <!-- Insert your Matomo tracking code here -->
-    <!-- Matomo -->
-    <script>
-      var _paq = (window._paq = window._paq || []);
-      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-      _paq.push(["trackPageView"]);
-      _paq.push(["enableLinkTracking"]);
-      (function () {
-        var u = "https://abdulanzil01.matomo.cloud/";
-        _paq.push(["setTrackerUrl", u + "matomo.php"]);
-        _paq.push(["setSiteId", "1"]);
-        var d = document,
-          g = d.createElement("script"),
-          s = d.getElementsByTagName("script")[0];
-        g.async = true;
-        g.src = "//cdn.matomo.cloud/abdulanzil01.matomo.cloud/matomo.js";
-        s.parentNode.insertBefore(g, s);
-      })();
-    </script>
-    <!-- End Matomo Code -->
-
-    <!-- LinkedIn Pixel -->
-    <script type="text/javascript">
-      _linkedin_partner_id = "5526210";
-      window._linkedin_data_partner_ids =
-        window._linkedin_data_partner_ids || [];
-      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-    </script>
-    <script type="text/javascript">
-      (function (l) {
-        if (!l) {
-          window.lintrk = function (a, b) {
-            window.lintrk.q.push([a, b]);
-          };
-          window.lintrk.q = [];
-        }
-        var s = document.getElementsByTagName("script")[0];
-        var b = document.createElement("script");
-        b.type = "text/javascript";
-        b.async = true;
-        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-        s.parentNode.insertBefore(b, s);
-      })(window.lintrk);
-    </script>
-    <noscript>
-      <img
-        height="1"
-        width="1"
-        style="display: none"
-        alt=""
-        src="https://px.ads.linkedin.com/collect/?pid=5526210&fmt=gif"
-      />
-    </noscript>
-    <!-- End LinkedIn Pixel -->
-
-    <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
-      );
-      fbq("consent", "revoke");
-      fbq("init", "{890643342462292}");
-      fbq("track", "PageView");
-      document.addEventListener(
-        "cookieyes_consent_update",
-        function (eventData) {
-          const data = eventData.detail;
-          if (data.accepted.includes("advertisement")) {
-            fbq("consent", "grant");
-          }
-        }
-      );
-    </script>
-
-<!-- <script>
-  var checktimeout = 0;
-  window.addEventListener("load", function () {
-    waitForElement(".cky-consent-container", function () {
-      document.querySelector(".cky-banner-btn-close").click();
-    });
-  });
-  function waitForElement(selector, callback) {
-    const element = document.querySelector(selector);
-    if (element) return callback();
-    checktimeout++;
-    if (checktimeout < 120) {
-      setTimeout(function () {
-        waitForElement(selector, callback);
-      }, 500);
-    }
-  }
-</script> -->
-
-    <script>
-      try {
-        const HIDE_BANNER_QUERY = "reader="; // Replace with your specific query string
-        const currentUrlQuery = window.location.href.split("?")[1] || "";
-        if (currentUrlQuery.includes(HIDE_BANNER_QUERY)) {
-          const styleElement = document.createElement("style");
-          styleElement.innerHTML = `.cky-consent-container { display: none; }`;
-          document.head.appendChild(styleElement);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    </script>
-
     
   </body>
 </html>
