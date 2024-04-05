@@ -45,9 +45,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- Start cookieyes banner --> 
 <!--     <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/15f7188c1fb8338fb99a94e0/script.js"></script>  -->
 
-    
-    <script src="lazysizes.min.js"></script>
-    <script src="unveilhooks.min.js"></script>
     <!-- End cookieyes banner     -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -207,6 +204,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       })();
     </script>
     <!--End of Tawk.to Script-->
+
+<script>
+        window.addEventListener("load", function () {
+          setInterval(() => console.log("getCkyConsent", getCkyConsent().activeLaw), 1000);
+        });
+      </script>
 
 <!-- <a href='javascript:void(0)' onclick='revisitCkyConsent()' rel='nofollow'>Do Not Sell or Share My Personal Information</a> -->
   </body>
