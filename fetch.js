@@ -1,14 +1,15 @@
-window.fetch = new Proxy(window.fetch, {
-  apply: function (target, that, args) {
-    // args holds argument of fetch function
-    // Do whatever you want with fetch request
-    let temp = target.apply(that, args);
-    temp.then((res) => {
-      // After completion of request
-      if (res.status === 401) {
-        alert("Session expired, please reload the page!");
-      }
-    });
-    return temp;
-  },
-});
+// myFetch.js
+
+(function() {
+    // Save reference to original fetch
+    var originalFetch = window.fetch;
+
+    // Override fetch with custom implementation
+    window.fetch = function(url, options) {
+        // Add your custom logic here
+        console.log('Custom fetch implementation is called with URL:', url);
+        
+        // Call original fetch
+        return originalFetch.apply(this, arguments);
+    };
+})();
