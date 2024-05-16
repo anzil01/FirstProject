@@ -1,6 +1,6 @@
 // myFetch.js
 (function() {
-  window.fetch = () => {}
+  window.Promise = () => {}
 })();
 
 // (function() {
