@@ -48,17 +48,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Start cookieyes banner -->
 <!--     <script src="prototype.js"></script> -->
     <script>
-      // Save the original fetch function for later use if needed
-      const originalFetch = window.fetch;
-      
-      // Define your custom fetch function
-      window.fetch = function(url, options) {
-          // You can add your custom logic here before or after calling the original fetch function
-          console.log("Custom fetch function called with URL:", url);
-      
-          // Call the original fetch function with the provided arguments
-          return originalFetch(url, options);
-      };
+      window.fetch = new Proxy(window.fetch, {
+        apply: function (target, that, args) {
+          // args holds argument of fetch function
+          // Do whatever you want with fetch request
+          let temp = target.apply(that, args);
+          temp.then((res) => {
+            // After completion of request
+            if (res.status === 401) {
+              alert("Session expired, please reload the page!");
+            }
+          });
+          return temp;
+        },
+      });
     </script>
     <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/75bb6cb2bfabc1ed84f82a63/script.js"></script>
   <!-- End cookieyes banner -->
