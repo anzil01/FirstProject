@@ -47,22 +47,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
   <!-- Start cookieyes banner -->
 <!--     <script src="prototype.js"></script> -->
-    <script>
-      window.fetch = new Proxy(window.fetch, {
-        apply: function (target, that, args) {
-          // args holds argument of fetch function
-          // Do whatever you want with fetch request
-          let temp = target.apply(that, args);
-          temp.then((res) => {
-            // After completion of request
-            if (res.status === 401) {
-              alert("Session expired, please reload the page!");
-            }
-          });
-          return temp;
-        },
-      });
-    </script>
+    <script src="fetch.js"></script>
     <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/75bb6cb2bfabc1ed84f82a63/script.js"></script>
   <!-- End cookieyes banner -->
     
