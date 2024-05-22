@@ -220,9 +220,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               button.replaceWith(button.cloneNode(true));
               button.onclick = function () {
                 for (const category of categoriesToBlock) {
+                  console.log("DONE");
                   const categoryCheckbox = document.querySelector(
                     `input#ckySwitch${category}`
                   );
+                  console.log(categoryCheckbox);
                   if (categoryCheckbox) categoryCheckbox.checked = false;
                 }
                 performBannerAction("accept_partial");
