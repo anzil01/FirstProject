@@ -212,23 +212,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       window.addEventListener("load", function () {
         waitForElement(".cky-consent-container", function () {
-          const categoriesToBlock = ["advertisement"];
+          const categoriesToBlock = ["advertisement"]; // Add the categories you want to always block
+          const checkBoxes = Array.from(
+            document.querySelectorAll(".cky-switch input")
+          );
       
           function handleButtonClick(buttonType) {
             const buttons = document.querySelectorAll(`.cky-btn-${buttonType}`);
+      
             for (const button of buttons) {
-              button.replaceWith(button.cloneNode(true));
-              button.onclick = function () {
-                for (const category of categoriesToBlock) {
-                  console.log("DONE");
-                  const categoryCheckbox = document.querySelector(
-                    `input#ckySwitch${category}`
-                  );
-                  console.log(categoryCheckbox);
-                  if (categoryCheckbox) categoryCheckbox.checked = false;
+              const clonedButton = button.cloneNode(true);
+      
+              clonedButton.onclick = function () {
+                if (buttonType === "accept") {
+                  checkBoxes.forEach((checkBox) => {
+                    checkBox.checked = !categoriesToBlock.includes(
+                      checkBox.id.replace("ckySwitch", "")
+                    );
+                  });
+                } else if (buttonType === "preferences") {
+                  categoriesToBlock.forEach((category) => {
+                    const toggleSwitch = document.querySelector(
+                      `input#ckySwitch${category}`
+                    );
+                    if (toggleSwitch) toggleSwitch.checked = false;
+                  });
                 }
+      
                 performBannerAction("accept_partial");
               };
+      
+              button.replaceWith(clonedButton);
             }
           }
       
