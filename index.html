@@ -207,5 +207,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </script>
     <!--End of Tawk.to Script-->
 
+    <script>
+      var checktimeout = 0;
+
+      window.addEventListener("load", function () {
+        waitForElement(".cky-consent-container", function () {
+          const categoriesToBlock = ["advertisement"];
+      
+          function handleButtonClick(buttonType) {
+            const buttons = document.querySelectorAll(`.cky-btn-${buttonType}`);
+            for (const button of buttons) {
+              button.replaceWith(button.cloneNode(true));
+              button.onclick = function () {
+                for (const category of categoriesToBlock) {
+                  const categoryCheckbox = document.querySelector(
+                    `input#ckySwitch${category}`
+                  );
+                  if (categoryCheckbox) categoryCheckbox.checked = false;
+                }
+                performBannerAction("accept_partial");
+              };
+            }
+          }
+      
+          handleButtonClick("accept");
+          handleButtonClick("preferences");
+        });
+      });
+      
+      function waitForElement(selector, callback) {
+        const element = document.querySelector(selector);
+        if (element) return callback();
+        checktimeout++;
+        if (checktimeout < 120) {
+          setTimeout(function () {
+            waitForElement(selector, callback);
+          }, 500);
+        }
+      }
+    </script>
+
   </body>
 </html>
