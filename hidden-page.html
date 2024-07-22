@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <title>Hidden page</title>
+  </head>
+  <body>
+    <h5>This is a hidden page that cannot be navigated from any other page.</h5>
+    <script>
+      const duration = new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000).toUTCString();
+      document.cookie = "hidden_page_cookie=prism_cookie_value; expires=" + duration;
+    </script>
+  </body>
+</html>
